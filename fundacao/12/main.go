@@ -2,43 +2,16 @@ package main
 
 import "fmt"
 
-type Cliente struct {
-	nome string
-}
-
-type Conta struct {
-	saldo int
-}
-
-func NewConta() *Conta {
-	return &Conta{saldo: 0}
-}
-
-func (c *Cliente) andou() {
-	c.nome = "Vyctor Guimarães"
-	fmt.Printf("O cliente %v andou\n", c.nome)
-}
-
-func (c Conta) simular(valor int) int {
-	c.saldo += valor
-	return c.saldo
-}
-
-func (c *Conta) depositar(valor int) int {
-	c.saldo += valor
-	return c.saldo
-}
+type x interface{}
 
 func main() {
-	vyctor := Cliente{
-		nome: "Vyctor",
-	}
-	vyctor.andou()
-	fmt.Printf("O valor da struct com nome é %v\n", vyctor.nome)
+	var x interface{} = 10
+	var y interface{} = "Hello, World!"
 
-	conta := NewConta()
-	conta.simular(200)
-	println(conta.saldo)
-	conta.depositar(1000)
-	println(conta.saldo)
+	showType(x)
+	showType(y)
+}
+
+func showType(t interface{}) {
+	fmt.Printf("O tipo da variável é %T e o valor é %v\n", t, t)
 }
