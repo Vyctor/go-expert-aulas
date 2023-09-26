@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/vyctor/curso-go/matematica"
 )
 
 func main() {
-	soma := Soma(10, 20)
-	fmt.Println("Resultado: %v", soma)
+	soma := matematica.Soma(10, 10)
+	fmt.Println("Resultado: ", soma)
 }
