@@ -1,0 +1,10 @@
+CEP: 75906-860
+Logradouro: Rua RG 8
+Complemento: 
+Bairro: Residencial Gameleira
+Localidade: Rio Verde
+UF: GO
+IBGE: 5218805
+GIA: 
+DDD: 64
+SIAFI: 9571
