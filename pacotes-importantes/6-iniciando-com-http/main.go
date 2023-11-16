@@ -62,5 +62,4 @@ func BuscaCep(cep string) (*ViaCEP, error) {
 		return nil, error
 	}
 	return &data, nil
-
 }
