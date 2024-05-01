@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -108,6 +109,50 @@ func (suite *EventDispatcherTestSuit) TestEventDispatcher_Clear() {
 	err = suite.eventDispatcher.Clear()
 	suite.Nil(err)
 	suite.Equal(0, len(suite.eventDispatcher.handlers))
+}
+
+func (suite *EventDispatcherTestSuit) TestEventDispatcher_Has() {
+	err := suite.eventDispatcher.Register(suite.event.GetName(), suite.handler)
+	suite.Nil(err)
+	suite.Equal(1, len(suite.eventDispatcher.handlers[suite.event.GetName()]))
+	err = suite.eventDispatcher.Register(suite.event.GetName(), suite.handler2)
+	suite.Nil(err)
+	suite.Equal(2, len(suite.eventDispatcher.handlers[suite.event.GetName()]))
+	err = suite.eventDispatcher.Register(suite.event.GetName(), suite.handler3)
+	suite.Nil(err)
+	suite.Equal(3, len(suite.eventDispatcher.handlers[suite.event.GetName()]))
+	has := suite.eventDispatcher.Has(suite.event.GetName(), suite.handler)
+	suite.True(has)
+	has = suite.eventDispatcher.Has(suite.event.GetName(), suite.handler2)
+	suite.True(has)
+	has = suite.eventDispatcher.Has(suite.event.GetName(), suite.handler3)
+	suite.True(has)
+
+	suite.eventDispatcher.Clear()
+
+	has = suite.eventDispatcher.Has(suite.event.GetName(), suite.handler)
+	suite.False(has)
+	has = suite.eventDispatcher.Has(suite.event.GetName(), suite.handler2)
+	suite.False(has)
+	has = suite.eventDispatcher.Has(suite.event.GetName(), suite.handler3)
+	suite.False(has)
+}
+
+type MockHandler struct {
+	mock.Mock
+}
+
+func (m *MockHandler) Handle(event EventInterface) {
+	m.Called(event)
+}
+
+func (suite *EventDispatcherTestSuit) TestEventDispatcher_Dispatch() {
+	eh := &MockHandler{}
+	eh.On("Handle", &suite.event)
+	suite.eventDispatcher.Register(suite.event.GetName(), eh)
+	suite.eventDispatcher.Dispatch(&suite.event)
+	eh.AssertExpectations(suite.T())
+	eh.AssertNumberOfCalls(suite.T(), "Handle", 1)
 }
 
 func TestSuite(t *testing.T) {
