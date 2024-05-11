@@ -8,15 +8,16 @@
   - [Motivos para usar GO](#motivos-para-usar-go)
   - [Índice de aulas](#índice-de-aulas)
     - [Fundação](#fundação)
-      - [1 - Entendendo a primeira linha](#1---entendendo-a-primeira-linha)
-      - [2- Declaração e atribuição](#2--declaração-e-atribuição)
-      - [3 Criação de tipos](#3-criação-de-tipos)
-      - [4 - Importando fmt e tipagem](#4---importando-fmt-e-tipagem)
-      - [5 - Percorrendo arrays](#5---percorrendo-arrays)
-      - [6 - Slices](#6---slices)
-      - [7 - Maps](#7---maps)
-      - [8 - Funções](#8---funções)
-      - [9  - Funções Variádicas](#9----funções-variádicas)
+      - [3 - Fundação](#3---fundação)
+      - [4- Pacotes importantes](#4--pacotes-importantes)
+      - [5 - Context](#5---context)
+      - [6 - Banco de dados](#6---banco-de-dados)
+      - [7 - Packaging](#7---packaging)
+      - [8 - Testing](#8---testing)
+      - [9 - APIs](#9---apis)
+      - [10  - Multithreading](#10----multithreading)
+      - [11 - Eventos](#11---eventos)
+      - [12 - GO Private](#12---go-private)
 
 ## O que é a linguagem GO
 
@@ -70,20 +71,22 @@ A linguagem GO não é:
 
 ### Fundação
 
-#### [1 - Entendendo a primeira linha](./fundacao/1)
+#### [3 - Fundação](./fundacao)
 
-#### [2- Declaração e atribuição](./fundacao/2)
+#### [4- Pacotes importantes](./4-pacotes-importantes/)
 
-#### [3 Criação de tipos](./fundacao/3)
+#### [5 - Context](./5-context/)
 
-#### [4 - Importando fmt e tipagem](./fundacao/4)
+#### [6 - Banco de dados](./6-Banco-de-Dados/)
 
-#### [5 - Percorrendo arrays](./fundacao/5)
+#### [7 - Packaging](./7-Packaging/)
 
-#### [6 - Slices](./fundacao/6)
+#### [8 - Testing](./8-Testing/)
 
-#### [7 - Maps](./fundacao/7)
+#### [9 - APIs](./9-APIs/)
 
-#### [8 - Funções](./fundacao/8)
+#### [10  - Multithreading](./10-Multithreading/)
 
-#### [9  - Funções Variádicas](./fundacao/9)
+#### [11 - Eventos](./11-Eventos/)
+
+#### [12 - GO Private](./12-GOPRIVATE/)
